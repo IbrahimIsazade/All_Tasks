@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             // Creating Variables
-            float a, b;
+            double a, b;
             string name, surename, fullname;
 
             // Body part
