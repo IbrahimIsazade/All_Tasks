@@ -19,19 +19,21 @@
 
             // Part 2+3
             int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            int resultTek = 0, resultCut = 0;
             Console.WriteLine("Part 2+3:");
             foreach (int num in nums)
             {
                 if (num % 2 == 0)
                 {
-                    Console.WriteLine($"{num} cut eddedir");
+                    resultCut += num;
                 }
                 else
                 {
-                    Console.WriteLine($"{num} tek eddedir");
+                    resultTek += num;
                 }
             }
-
+            Console.WriteLine($"{resultTek} tek ededler cemi");
+            Console.WriteLine($"{resultCut} cut ededler cemi");
             Console.WriteLine("\n--------------------------\n");
 
             // Part 4
