@@ -9,19 +9,27 @@
             Console.WriteLine("- - - - - - - -");
 
             Console.WriteLine("Part 2");
-            Console.WriteLine(Part2(123456));
+            Console.WriteLine(Part2(123_456));
             Console.WriteLine("- - - - - - - -");
 
             Console.WriteLine("Part 3");
-            Console.WriteLine(Part3(123456789));
+            Console.WriteLine(Part3(123_456_789));
             Console.WriteLine("- - - - - - - -");
 
             Console.WriteLine("Part 4");
-            Console.WriteLine(Part4(12345));
+            Console.WriteLine(Part4(12_345));
             Console.WriteLine("- - - - - - - -");
 
             Console.WriteLine("Part 5");
-            Console.WriteLine(Part5(123456));
+            Console.WriteLine(Part5(123_456));
+            Console.WriteLine("- - - - - - - -");
+
+            Console.WriteLine("Part 6");
+            Console.WriteLine(Part6(12_345_678));
+            Console.WriteLine("- - - - - - - -");
+
+            Console.WriteLine("Part 7");
+            Console.WriteLine(Part7(1_234));
             Console.WriteLine("- - - - - - - -");
         }
 
@@ -62,7 +70,7 @@
         static int Part3(int number)
         {
             if (number >= 100_000_000 && number < 1_000_000_000)
-            {         
+            {
                 number /= 1000;
                 number %= 1000;
             }
@@ -91,10 +99,41 @@
                 number /= 10;
                 firstNum = number / 10_000;
                 number = number - (firstNum * 10000);
-                number = number * 100 + (reminder*10);
+                number = number * 100 + (reminder * 10);
                 number += num;
             }
             return number;
+        }
+
+        static int Part6(int number)
+        {
+            int reminder;
+            if (number >= 10_000_000 && number < 100_000_000)
+            {
+                number /= 10;
+                reminder = number / 1_000_000;
+                number -= reminder * 1_000_000;
+            }
+            return number;
+        }
+
+        static int Part7(int number)
+        {
+            int res = 0, num;
+            if (number >= 1_000 && number < 10_000)
+            {
+                for (int i = 1000; i >= 1; i /= 10)
+                {
+                    num = number % 10;
+                    res += num * i;
+                    number /= 10;
+                }
+                res *= 10;
+                res += 800000;
+                num = res % 10;
+                res += 8 - num;
+            }
+            return res;
         }
     }
 }
