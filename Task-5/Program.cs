@@ -31,6 +31,18 @@
             Console.WriteLine("Part 7");
             Console.WriteLine(Part7(1_234));
             Console.WriteLine("- - - - - - - -");
+
+            Console.WriteLine("Part 8");
+            Console.WriteLine(Part8(12_345));
+            Console.WriteLine("- - - - - - - -");
+
+            Console.WriteLine("Part 9");
+            Console.WriteLine(Part9(123_456_789));
+            Console.WriteLine("- - - - - - - -");
+
+            Console.WriteLine("Part 10");
+            Console.WriteLine(Part10(123_456_789));
+            Console.WriteLine("- - - - - - - -");
         }
 
         /* 
@@ -135,5 +147,67 @@
             }
             return res;
         }
+
+        static int Part8(int number)
+        {
+            int res = 0, num1, num2;
+            if (number >= 100)
+            {
+                num1 = number % 1000;
+                num1 /= 100;
+                num2 = number % 10;
+                res = num1 + num2;
+            }
+            return res;
+        }
+
+        static int Part9(int number)
+        {
+            int res = 0, j = 1;
+            if (number >= 100_000_000 && number < 1_000_000_000)
+            {
+                for (int i = Convert.ToInt32(Math.Log10(number)); i >= 0; i--)
+                {
+
+                    if (i % 2 == 0)
+                    {
+                        res += (number % 10) * j;
+                        j *= 10;
+                    }
+                    number /= 10;
+                }
+            }
+            return res;
+        }
+
+        static int Part10(int number)
+        {
+            int resTek = 0, resCut = 0, j = 1, numberSave = number;
+            if (number >= 100_000_000 && number < 1_000_000_000)
+            {
+                for (int i = Convert.ToInt32(Math.Log10(number)); i >= 0; i--)
+                {
+                    if (i % 2 == 0)
+                    {
+                        resTek += (number % 10) * j;
+                        j *= 10;
+                    }
+                    number /= 10;
+                }
+                j = 1;
+                for (int i = Convert.ToInt32(Math.Log10(numberSave)); i >= 0; i--)
+                {
+                    if (i % 2 == 1)
+                    {
+                        resCut += (numberSave % 10) * j;
+                        j *= 10;
+                    }
+                    numberSave /= 10;
+                }
+            }
+            return resCut + resTek;
+        }
+
+
     }
 }
