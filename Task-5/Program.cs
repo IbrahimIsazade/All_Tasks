@@ -4,44 +4,52 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Part 1");
+            Console.Write("Part 1: ");
             Console.WriteLine(Part1(1234));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 2");
+            Console.Write("Part 2: ");
             Console.WriteLine(Part2(123_456));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 3");
+            Console.Write("Part 3: ");
             Console.WriteLine(Part3(123_456_789));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 4");
+            Console.Write("Part 4: ");
             Console.WriteLine(Part4(12_345));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 5");
+            Console.Write("Part 5: ");
             Console.WriteLine(Part5(123_456));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 6");
+            Console.Write("Part 6: ");
             Console.WriteLine(Part6(12_345_678));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 7");
+            Console.Write("Part 7: ");
             Console.WriteLine(Part7(1_234));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 8");
+            Console.Write("Part 8: ");
             Console.WriteLine(Part8(12_345));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 9");
+            Console.Write("Part 9: ");
             Console.WriteLine(Part9(123_456_789));
             Console.WriteLine("- - - - - - - -");
 
-            Console.WriteLine("Part 10");
+            Console.Write("Part 10: ");
             Console.WriteLine(Part10(123_456_789));
+            Console.WriteLine("- - - - - - - -");
+
+            Console.Write("Part 11: ");
+            Console.WriteLine(Part11(12_34_56_78));
+            Console.WriteLine("- - - - - - - -");
+
+            Console.Write("Part 12: ");
+            Console.WriteLine(Part12(12_345, 12_345));
             Console.WriteLine("- - - - - - - -");
         }
 
@@ -206,8 +214,53 @@
                 }
             }
             return resCut + resTek;
+        } 
+
+        static int Part11(int number)
+        {
+            int res = 0, num, divide = 1, multiply = 100;
+            int[] groups = new int[4];
+            if (number >= 10_000_000 && number < 100_000_000)
+            {
+                for (int i = 0;i < 4;i++ )
+                {
+                    num = number / divide;
+                    num /= 100;
+                    num *= multiply;
+                    groups[i] = (number - num) / divide;
+
+                    divide *= 100;
+                    multiply *= 100;
+                }
+
+                foreach (var item in groups)
+                {
+                    res += item;
+                }
+            }
+            return res;
         }
 
+        static int Part12(int number1, int number2)
+        {
+            int res = 0, resNum1 = 0, resNum2 = 0, num1LastNum;
+            if ((number1 >= 10_000 && number1 < 100_000) && (number2 >= 10_000 && number2 < 100_000))
+            {
+                for (int i = 0; i < Math.Log10(number1); i++)
+                {
+                    resNum1 += number1 % 10;
+                    number1 /= 10;
+                }
+                num1LastNum = resNum1 % 10;
+                for (int i = 0; i < Math.Log10(number2); i++)
+                {
+                    resNum2 *= number2 % 10;
+                    number2 /= 10;
+                }
 
+                res = ((resNum1 + resNum2) * 10) + num1LastNum;
+            }
+            return res;
+        }
     }
 }
