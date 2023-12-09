@@ -51,12 +51,15 @@
             Console.Write("Part 12: ");
             Console.WriteLine(Part12(12_345, 12_345));
             Console.WriteLine("- - - - - - - -");
-        }
 
-        /* 
-           MUELLIM ALLAH HAQQI HAMISINI OZUM YAZMISAM !!! BIR DEFE BELE CHAT-GPT'DEN
-           NESE SORUSMAMISAM !!!!
-        */
+            Console.Write("Part 13: ");
+            Console.WriteLine(Part13(12_345, 67_890, 65_213));
+            Console.WriteLine("- - - - - - - -");
+
+            Console.Write("Part 14: ");
+            Console.WriteLine(Part14(123_456, 456_789, 246_824, 1_357_931));
+            Console.WriteLine("- - - - - - - -");
+        }
 
         static int Part1(int number)
         {
@@ -214,7 +217,7 @@
                 }
             }
             return resCut + resTek;
-        } 
+        }
 
         static int Part11(int number)
         {
@@ -222,7 +225,7 @@
             int[] groups = new int[4];
             if (number >= 10_000_000 && number < 100_000_000)
             {
-                for (int i = 0;i < 4;i++ )
+                for (int i = 0; i < 4; i++)
                 {
                     num = number / divide;
                     num /= 100;
@@ -262,5 +265,51 @@
             }
             return res;
         }
+
+        static int Part13(int number1, int number2, int number3)
+        {
+            int res = 0, resNum1, resNum2, resNum3;
+            if ((number1 >= 10_000 && number1 < 100_000)
+               && (number2 >= 10_000 && number2 < 100_000)
+               && (number3 >= 10_000 && number3 < 100_000))
+            {
+                resNum1 = JoinFirstSecond(number1);
+                resNum2 = JoinFirstSecond(number2);
+                resNum3 = JoinFirstSecond(number3);
+                res += resNum1 + resNum2 + resNum3;
+            }
+            return (res / 2) + res;
+
+            static int JoinFirstSecond(int number)
+            {
+                return ((number / 10_000) * 10) + number % 10;
+            }
+        }
+
+        static int Part14(int number1, int number2, int number3, int number4)
+        {
+            int res = 0, resNum4 = 1;
+            if ((number1 >= 100_000 && number1 < 1_000_000)
+               && (number2 >= 100_000 && number2 < 1_000_000)
+               && (number3 >= 100_000 && number3 < 1_000_000)
+               && (number4 >= 1_000_000 && number4 < 10_000_000))
+            {
+                res += (number1 / 1000) + (number2 / 1000) + (number3 / 1000);
+                res += number4 % 10_000;
+                number4 /= 100_000;
+                for (int i = 0; i < 3; i++)
+                {
+                    resNum4 *= number4 % 10;
+                    number4 /= 10;
+                }
+                res -= resNum4;
+                res = (res / 10) * 6;
+                res *= 100;
+                res += 60;
+                res -= (res / 100) * 18;
+            }
+            return res;
+        }
+
     }
 }
