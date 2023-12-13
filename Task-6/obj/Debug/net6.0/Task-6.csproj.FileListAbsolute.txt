@@ -1,0 +1,14 @@
+D:\Solutions\Code Academy\Tasks\Task-6\bin\Debug\net6.0\Task-6.exe
+D:\Solutions\Code Academy\Tasks\Task-6\bin\Debug\net6.0\Task-6.deps.json
+D:\Solutions\Code Academy\Tasks\Task-6\bin\Debug\net6.0\Task-6.runtimeconfig.json
+D:\Solutions\Code Academy\Tasks\Task-6\bin\Debug\net6.0\Task-6.dll
+D:\Solutions\Code Academy\Tasks\Task-6\bin\Debug\net6.0\Task-6.pdb
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\Task-6.GeneratedMSBuildEditorConfig.editorconfig
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\Task-6.AssemblyInfoInputs.cache
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\Task-6.AssemblyInfo.cs
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\Task-6.csproj.CoreCompileInputs.cache
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\Task-6.dll
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\refint\Task-6.dll
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\Task-6.pdb
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\Task-6.genruntimeconfig.cache
+D:\Solutions\Code Academy\Tasks\Task-6\obj\Debug\net6.0\ref\Task-6.dll
