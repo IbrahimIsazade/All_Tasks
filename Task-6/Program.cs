@@ -13,7 +13,12 @@
             Console.WriteLine($"Part 7:  {Part7("abc")}\n");
             Console.WriteLine($"Part 8:");
             Part8("abc"); Console.WriteLine();
-            
+            Console.WriteLine($"Part 9:  {Part9("abasa")}\n");
+            Console.WriteLine($"Part 10:  {Part10("a1as2a2")}\n");
+            Console.WriteLine($"Part 11:  {Part11("a b ab ba")}\n");
+            Console.WriteLine($"Part 12:  {Part12("abbaa")}\n");
+            Console.WriteLine($"Part 13:  {Part13("ababa")}\n");
+            Console.WriteLine($"Part 14:  {Part14("aab")}\n");
 
         }
 
@@ -37,7 +42,7 @@
             bool res = true;
             for (int i = 0; i < text.Length; i += 2)
             {
-                if (text[i] != 'a')
+                if ( res && text[i] != 'a')
                 {
                     res = false;
                 }
@@ -132,6 +137,108 @@
                 }
             }
             return;
+        }
+
+        static bool Part9(string text)
+        {
+            // Verilmish metinde ilk 3 simvol, son 3 simvolun tersine formasina beraberdirmi.? 
+            bool res = true;
+            string? p1, p2;
+            p1 = text.Substring(0, 3);
+            p2 = text.Substring(text.Length - 3, 3);
+            p2 = new string(p2.Reverse().ToArray());
+            if (p1 != p2)
+            {
+                res = false;
+            }
+            return res;
+        }
+
+        static string Part10(string text)
+        {
+            // Verilmish metinde butun reqemleri legv et
+            foreach (char letter in text)
+            {
+                if (Char.IsNumber(letter))
+                {
+                    text = text.Remove(text.IndexOf(letter), 1);
+                }
+            }
+            return text;
+        }
+
+        static string Part11(string text)
+        {
+            // Verilmish metinde butun {a} simvollarinin qabagina {b} simvolunu ve
+            // eyni zamandan butun {b} simvollarinin qabagina {a} simvolunu yaz. 
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (text[i] == 'a')
+                {
+                    text = text.Insert(i+1, "b");
+                    i++;
+                }
+                else if (text[i] == 'b')
+                {
+                    text = text.Insert(i+1, "a");
+                    i++;
+                }
+            }
+            return text;
+        }
+
+        static string Part12(string text)
+        {
+            // Verilmish metinde en ilk ve en son {a}
+            // simvolundan bashqa yerde qalan butun {a} simvollarini yox et. 
+            int firstA, lastA;
+            firstA = text.IndexOf('a');
+            lastA = text.LastIndexOf('a');
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (i > firstA && i < lastA && text[i] == 'a')
+                {
+                    text = text.Remove(i, 1);
+                    lastA--;
+                }
+            }
+            return text;
+        }
+
+        static string Part13(string text)
+        {
+            //  Verilimish metinde butun simvollari ardicil shekilde biri balaca,
+            //  biri boyuk formada cap et.
+            char letter;
+            for (int i = 0; i < text.Length; i+=2)
+            {
+                if (i <= text.Length - 1)
+                {
+                    letter = text[i];
+                    text = text.Remove(i, 1);
+                    text = text.Insert(i, Char.ToUpper(letter).ToString());
+                }
+            }
+            return text;
+        }
+
+        static string Part14(string text)
+        {
+            //  Verilmish metinde butun tek yerde dayanan
+            //  simvollari ondan sonra gelen simvolun
+            //  BOYUK formasi ile evez et. 
+            char letter;
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (i < text.Length - 1)
+                {
+                    letter = text[i + 1];
+                    text = text.Remove(i, 1);
+                    text = text.Insert(i, Char.ToUpper(letter).ToString());
+                }
+            }
+            return text;
         }
 
     }
