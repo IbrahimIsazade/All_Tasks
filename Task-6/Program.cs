@@ -11,15 +11,14 @@
             Console.WriteLine($"Part 5:  {Part5("debac")}\n");
             Console.WriteLine($"Part 6:  {Part6("aba")}\n");
             Console.WriteLine($"Part 7:  {Part7("abc")}\n");
-            Console.WriteLine($"Part 8:");
-            Part8("abc"); Console.WriteLine();
+            Console.WriteLine($"Part 8:");Part8("abc"); Console.WriteLine();
             Console.WriteLine($"Part 9:  {Part9("abasa")}\n");
             Console.WriteLine($"Part 10:  {Part10("a1as2a2")}\n");
             Console.WriteLine($"Part 11:  {Part11("a b ab ba")}\n");
             Console.WriteLine($"Part 12:  {Part12("abbaa")}\n");
             Console.WriteLine($"Part 13:  {Part13("ababa")}\n");
             Console.WriteLine($"Part 14:  {Part14("aab")}\n");
-            Console.WriteLine($"Part 15:  {Part14("aabds")}\n");
+            Console.WriteLine($"Part 15:  {Part15("aabds")}\n");
 
         }
 
@@ -241,7 +240,6 @@
             }
             return text;
         }
-
 
         static bool Part15(string text)
         {
