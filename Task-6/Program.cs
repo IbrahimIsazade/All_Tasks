@@ -19,6 +19,7 @@
             Console.WriteLine($"Part 12:  {Part12("abbaa")}\n");
             Console.WriteLine($"Part 13:  {Part13("ababa")}\n");
             Console.WriteLine($"Part 14:  {Part14("aab")}\n");
+            Console.WriteLine($"Part 15:  {Part14("aabds")}\n");
 
         }
 
@@ -241,5 +242,75 @@
             return text;
         }
 
+
+        static bool Part15(string text)
+        {
+            // Verilmish metinde ilk ve son simvol eynidirse,
+            // ve metn daxilinde yanashi gelen { a}
+            // simvolu varsa, ve metn daxilinde { b}
+            // simvolu yoxdursa
+            // o zaman bu metnde butun { c}
+            // simvollari yox et ve
+            // alinan metn zerkalni olub olmadigini yoxla.
+            int indexA = 0, indexC = 0;
+            string reverseText;
+            if (text[0] == text[text.Length - 1])
+            {
+                indexA = text.IndexOf('a', indexA);
+                if (indexA != text.Length - 1)
+                {
+                    l1:
+                    if (text[indexA] == text[indexA + 1])
+                    {
+                        if (text.IndexOf('b') == -1)
+                        {
+                            while (text.IndexOf('c', indexC) != -1)
+                            {
+                                text.Remove(indexA, 1);
+                                indexC++;
+                            }
+                            for (int i = 0; i <= text.Length - 1; i++)
+                            {
+
+                            }
+                            char[] c = text.ToCharArray();
+                            Array.Reverse(c);
+                            reverseText = new string(c);
+                            if (reverseText == text)
+                            {
+
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+
+                            }
+                        }
+                        else
+                        {
+                                return false;
+
+                        }
+                    }
+                    else
+                    {
+                        indexA++;
+                        goto l1;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Is Not able to solve");
+                    return false;
+                }
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
