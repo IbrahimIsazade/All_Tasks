@@ -17,8 +17,8 @@
             Console.WriteLine($"Part 11:  {Part11("a b ab ba")}\n");
             Console.WriteLine($"Part 12:  {Part12("abbaa")}\n");
             Console.WriteLine($"Part 13:  {Part13("ababa")}\n");
-            Console.WriteLine($"Part 14:  {Part14("aab")}\n");
-            Console.WriteLine($"Part 15:  {Part15("aabds")}\n");
+            Console.WriteLine($"Part 14:  {Part14("bab")}\n");
+            Console.WriteLine($"Part 15:  {Part15("aa")}\n");
 
         }
 
@@ -195,9 +195,9 @@
             firstA = text.IndexOf('a');
             lastA = text.LastIndexOf('a');
 
-            for (int i = 0; i < text.Length; i++)
+            for (int i = firstA + 1; i < lastA; i++)
             {
-                if (i > firstA && i < lastA && text[i] == 'a')
+                if (text[i] == 'a')
                 {
                     text = text.Remove(i, 1);
                     lastA--;
@@ -229,11 +229,11 @@
             //  simvollari ondan sonra gelen simvolun
             //  BOYUK formasi ile evez et. 
             char letter;
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < text.Length - 1; i++)
             {
-                if (i < text.Length - 1)
+                letter = text[i + 1];
+                if (i % 2 == 0 && Char.IsLetter(letter))
                 {
-                    letter = text[i + 1];
                     text = text.Remove(i, 1);
                     text = text.Insert(i, Char.ToUpper(letter).ToString());
                 }
