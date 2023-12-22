@@ -28,6 +28,10 @@
             Part6(x, y);
             Part7(x);
             Part8(x, y);
+            Part9(z);
+            Part10(z);
+            Part11(rX);
+            Part12(rX);
         }
 
         static void Part1(int[] arr, int c)
