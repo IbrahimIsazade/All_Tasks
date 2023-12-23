@@ -269,19 +269,8 @@
             Console.WriteLine("Part 11:");
             SetRandomElements(ref arr, 11);
 
-            int num;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                for (int j = i + 1; j < arr.Length; j++)
-                {
-                    if (arr[i] < arr[j])
-                    {
-                        num = arr[j];
-                        arr[j] = arr[i];
-                        arr[i] = num;
-                    }
-                }
-            }
+            Array.Sort(arr);
+            Array.Reverse(arr);
 
             PrintArray(arr);
 
