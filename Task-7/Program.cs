@@ -5,20 +5,20 @@
         static void Main(string[] args)
         {
             #region GetArray
-            int count = ReadInt("Enter the count of elements: "), element;
+            int count = ReadInt("Enter the count of elements: ", "Incorrect number"), element;
             int[] array = new int[count];
             for (int i = 0; i < count; i++)
             {
-                element = ReadInt($"Enter the value by number {i + 1}: ");
+                element = ReadInt($"Enter the value by number {i + 1}: ", "Incorrect number");
                 array[i] = element;
             }
             #endregion
 
-            int c = ReadInt("Enter the `C`: ");
+            int c = ReadInt("Enter the `C`: ", "Incorrect number");
             int[] x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 }, 
                   y = { 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }, 
                   z = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 },
-                  rX = new int[0];
+                  rX = Array.Empty<int>();
 
             Part1(array, c);
             Part2(array, c);
@@ -127,6 +127,11 @@
             // sertini odeyen elementler icinden maximum elementi tapmaq
             Console.WriteLine("Part 5:");
             int[] numbers = arr.Where(x => Math.Abs(x) < c).ToArray();
+            if (numbers.Length == 0)
+            {
+                Console.WriteLine("There's no any number to satisfy your condition");
+                return;
+            }
             int max = numbers[0];
             for (int i = 1; i < numbers.Length; i++)
             {
@@ -216,11 +221,11 @@
             int j = 0;
             for (int i = 8; i < arr.Length; i++)
             {
-                resDivide[i] = arr[i]/4;
+                resDivide[j] = arr[i]/4;
                 j++;
             }
-            Console.WriteLine(resPow);
-            Console.WriteLine(resDivide);
+            PrintArray(resPow);
+            PrintArray(resDivide);
             Console.WriteLine($"\n=================================");
         }
 
@@ -237,6 +242,11 @@
                     Array.Resize(ref minNums, minNums.Length);
                     minNums[i] = arr[i];
                 }
+            }
+            if (minNums.Length == 0)
+            {
+                Console.WriteLine("There's no any negative number");
+                return;
             }
             int max = minNums[0];
             foreach (var item in minNums)
@@ -257,7 +267,7 @@
             // 11. X(n) massivinin elementlerini random olaraq 0-100 arasi
             // ededlerle doldurub,sonra ise azalma sirasina gore duzmeli
             Console.WriteLine("Part 11:");
-            SetRandomElements(ref arr, 10);
+            SetRandomElements(ref arr, 11);
 
             int num;
             for (int i = 0; i < arr.Length; i++)
@@ -272,6 +282,8 @@
                     }
                 }
             }
+
+            PrintArray(arr);
 
             Console.WriteLine($"\n=================================");
         }
@@ -317,12 +329,28 @@
             }
         }
 
-        static int ReadInt(string text)
+        static int ReadInt(string text, string exception)
         {
             Console.Write(text);
             string sInpt = Console.ReadLine()!;
-            int inpt = Convert.ToInt32(sInpt);
+            bool state = int.TryParse(sInpt, out int inpt);
+            if (!state)
+            {
+                Console.WriteLine(exception);
+                return 0;
+            }
             return inpt;
+        }
+
+        static void PrintArray(Array arr)
+        {
+            Console.WriteLine("===================================================");
+            foreach (var item in arr)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine("\n===================================================");
+
         }
     }
 }
