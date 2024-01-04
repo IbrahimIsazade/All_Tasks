@@ -1,0 +1,67 @@
+Task 1:
+
+procedure Part1(num)
+    IF num modulo 2 equals 0 THEN
+        output "{num} eddedi cutdur"
+    ELSE
+        output "{num} eddedi cut deyl"
+    ENDIF
+end procedure
+
+
+
+
+
+Task 2:
+
+procedure Part2(a, b)
+    set diff to a divided by b
+    IF (diff multiplied by a) equals b THEN
+        output "Bolunur"
+    ELSE
+        output "Bolunmur"
+    ENDIF
+end procedure
+
+
+
+
+
+Task 3:
+
+procedure Part3(num)
+    IF num modulo 10 equals 7 THEN
+        output "Beli"
+    ELSE
+        output "Xeyr"
+    ENDIF
+end procedure
+
+
+
+
+Task 4:
+
+procedure Part3(num)
+    IF (num divided by 10) equals (num modulo 10) THEN
+        output "Beli"
+    ELSE
+        output "Xeyr"
+    ENDIF
+end procedure
+
+
+
+
+
+Task 5:
+
+procedure Part3(num)
+    IF (num is greater than or equal to 10) AND (num is less than 10) THEN
+	IF ((num divided by 10) plus (num modulo 10)) modulo 2 equals to 0 THEN
+            output (num divided by 10) multiplied by (num modulo 10)
+    	ELSE
+            output "ədəddə tək rəqəm mövcuddu"
+	ENDIF
+    ENDIF
+end procedure
