@@ -22,7 +22,7 @@ namespace Task_8
             CultureInfo culture = new CultureInfo("az");
             DateTime now = DateTime.Now;
             string add ="";
-            switch (now.Year%10)
+            switch (now.Year % 10)
             {
                 case 6:
                     add = "-cı il";
@@ -35,6 +35,32 @@ namespace Task_8
                     add = "-ci il";
                     break;
                 case 0:
+                    switch (now.Year % 100)
+                    {
+                        case 400:
+                        case 600:
+                        case 900:
+                            add = "-cı il";
+                            break;
+                        case 200:
+                        case 500:
+                        case 700:
+                        case 800:
+                        case 0:
+                            if ((now.Year / 100) % 10 == 0)
+                            {
+                                add = "-ci il";
+                                break;
+                            }
+                            add = "-cü il";
+                            break;
+
+                        case 100:
+                        case 300:
+                            add = "-cu il";
+                            break;
+                    }
+                    break;
                 case 9:
                     add = "-cu il";
                     break;
