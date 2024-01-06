@@ -37,15 +37,15 @@ namespace Task_8
                 case 0:
                     switch (now.Year % 100)
                     {
-                        case 400:
-                        case 600:
-                        case 900:
+                        case 40:
+                        case 60:
+                        case 90:
                             add = "-cı il";
                             break;
-                        case 200:
-                        case 500:
-                        case 700:
-                        case 800:
+                        case 20:
+                        case 50:
+                        case 70:
+                        case 80:
                         case 0:
                             if ((now.Year / 100) % 10 == 0)
                             {
@@ -55,8 +55,8 @@ namespace Task_8
                             add = "-cü il";
                             break;
 
-                        case 100:
-                        case 300:
+                        case 10:
+                        case 30:
                             add = "-cu il";
                             break;
                     }
